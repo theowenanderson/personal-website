@@ -102,6 +102,17 @@
     padding: 4px;
     border-radius: 2px;
     transition: background-color 0.2s;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  
+  .xp-icon svg {
+    filter: drop-shadow(1px 1px 0px #000) 
+            drop-shadow(-1px -1px 0px #000) 
+            drop-shadow(1px -1px 0px #000) 
+            drop-shadow(-1px 1px 0px #000);
+    image-rendering: pixelated;
   }
   
   .xp-icon:hover {
@@ -117,6 +128,25 @@
     text-align: center;
     margin-top: 2px;
     line-height: 1.1;
+  }
+
+  /* Start Button Styles */
+  .xp-start-button {
+    background: linear-gradient(180deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border: 1px outset #45a049;
+    font-weight: bold;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3), 
+                inset -1px -1px 0 rgba(0,0,0,0.3);
+  }
+
+  .xp-start-button:hover {
+    background: linear-gradient(180deg, #5CBF60 0%, #55b059 100%);
+  }
+
+  .xp-start-button:active {
+    border: 1px inset #45a049;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
   }
 }
 

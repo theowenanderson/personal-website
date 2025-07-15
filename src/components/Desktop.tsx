@@ -12,12 +12,28 @@ const Desktop: React.FC = () => {
     experience: false
   });
 
+  const [minimizedWindows, setMinimizedWindows] = useState<Record<string, boolean>>({
+    resume: false,
+    about: false,
+    skills: false,
+    experience: false
+  });
+
   const openWindow = (windowId: string) => {
     setOpenWindows(prev => ({ ...prev, [windowId]: true }));
   };
 
   const closeWindow = (windowId: string) => {
     setOpenWindows(prev => ({ ...prev, [windowId]: false }));
+    setMinimizedWindows(prev => ({ ...prev, [windowId]: false }));
+  };
+
+  const minimizeWindow = (windowId: string) => {
+    setMinimizedWindows(prev => ({ ...prev, [windowId]: true }));
+  };
+
+  const restoreWindow = (windowId: string) => {
+    setMinimizedWindows(prev => ({ ...prev, [windowId]: false }));
   };
 
   const openExternalLink = (url: string) => {
@@ -34,12 +50,20 @@ const Desktop: React.FC = () => {
           skills: 'Skills - Owen Anderson',
           experience: 'Experience - Owen Anderson'
         };
-        return titles[windowId];
+        return { id: windowId, title: titles[windowId], isMinimized: minimizedWindows[windowId] };
       });
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div 
+      className="min-h-screen relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/lovable-uploads/256b2b3e-03f7-4071-8d63-a740debde2aa.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Desktop Icons */}
       <div className="absolute top-4 left-4 space-y-4">
         <DesktopIcon
@@ -83,7 +107,9 @@ const Desktop: React.FC = () => {
       <XPWindow
         title="Resume - Owen Anderson"
         isOpen={openWindows.resume}
+        isMinimized={minimizedWindows.resume}
         onClose={() => closeWindow('resume')}
+        onMinimize={() => minimizeWindow('resume')}
         initialPosition={{ x: 150, y: 50 }}
         width={600}
         height={500}
@@ -139,7 +165,9 @@ const Desktop: React.FC = () => {
       <XPWindow
         title="About Me - Owen Anderson"
         isOpen={openWindows.about}
+        isMinimized={minimizedWindows.about}
         onClose={() => closeWindow('about')}
+        onMinimize={() => minimizeWindow('about')}
         initialPosition={{ x: 200, y: 100 }}
         width={500}
         height={400}
@@ -171,7 +199,9 @@ const Desktop: React.FC = () => {
       <XPWindow
         title="Skills - Owen Anderson"
         isOpen={openWindows.skills}
+        isMinimized={minimizedWindows.skills}
         onClose={() => closeWindow('skills')}
+        onMinimize={() => minimizeWindow('skills')}
         initialPosition={{ x: 250, y: 150 }}
         width={450}
         height={400}
@@ -220,7 +250,9 @@ const Desktop: React.FC = () => {
       <XPWindow
         title="Experience - Owen Anderson"
         isOpen={openWindows.experience}
+        isMinimized={minimizedWindows.experience}
         onClose={() => closeWindow('experience')}
+        onMinimize={() => minimizeWindow('experience')}
         initialPosition={{ x: 300, y: 200 }}
         width={550}
         height={450}
@@ -266,7 +298,7 @@ const Desktop: React.FC = () => {
       </XPWindow>
 
       {/* Taskbar */}
-      <Taskbar openWindows={getOpenWindowTitles()} />
+      <Taskbar openWindows={getOpenWindowTitles()} onWindowClick={restoreWindow} />
     </div>
   );
 };

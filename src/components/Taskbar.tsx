@@ -1,22 +1,27 @@
 import React from 'react';
 
 interface TaskbarProps {
-  openWindows: string[];
+  openWindows: { id: string; title: string; isMinimized: boolean }[];
+  onWindowClick: (windowId: string) => void;
 }
 
-const Taskbar: React.FC<TaskbarProps> = ({ openWindows }) => {
+const Taskbar: React.FC<TaskbarProps> = ({ openWindows, onWindowClick }) => {
   return (
     <div className="xp-taskbar flex items-center px-2">
-      <button className="xp-button mr-2 px-4 py-1 font-bold">
+      <button className="xp-start-button mr-2 px-4 py-1 font-bold flex items-center gap-2">
+        <div className="w-4 h-4 bg-gradient-to-r from-green-400 to-blue-500 rounded-sm flex items-center justify-center">
+          <span className="text-white text-xs font-bold">⊞</span>
+        </div>
         start
       </button>
       <div className="flex items-center gap-2">
-        {openWindows.map((windowTitle) => (
+        {openWindows.map((window) => (
           <button
-            key={windowTitle}
-            className="xp-button px-3 py-1 text-xs"
+            key={window.id}
+            className={`xp-button px-3 py-1 text-xs ${window.isMinimized ? 'opacity-60' : ''}`}
+            onClick={() => onWindowClick(window.id)}
           >
-            {windowTitle}
+            {window.title}
           </button>
         ))}
       </div>

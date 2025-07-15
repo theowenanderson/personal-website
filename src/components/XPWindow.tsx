@@ -5,7 +5,9 @@ interface XPWindowProps {
   title: string;
   children: React.ReactNode;
   isOpen: boolean;
+  isMinimized?: boolean;
   onClose: () => void;
+  onMinimize?: () => void;
   initialPosition?: { x: number; y: number };
   width?: number;
   height?: number;
@@ -15,7 +17,9 @@ const XPWindow: React.FC<XPWindowProps> = ({
   title,
   children,
   isOpen,
+  isMinimized = false,
   onClose,
+  onMinimize,
   initialPosition = { x: 100, y: 100 },
   width = 500,
   height = 400
@@ -61,7 +65,7 @@ const XPWindow: React.FC<XPWindowProps> = ({
     };
   }, [isDragging, dragOffset]);
 
-  if (!isOpen) return null;
+  if (!isOpen || isMinimized) return null;
 
   return (
     <div
@@ -81,7 +85,7 @@ const XPWindow: React.FC<XPWindowProps> = ({
       >
         <span>{title}</span>
         <div className="flex items-center gap-1">
-          <button className="xp-button text-xs px-1" onClick={() => {}}>
+          <button className="xp-button text-xs px-1" onClick={onMinimize}>
             <Minus size={10} />
           </button>
           <button className="xp-button text-xs px-1" onClick={() => {}}>
