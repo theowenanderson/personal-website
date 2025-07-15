@@ -61,7 +61,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'xp-desktop': 'hsl(var(--xp-desktop-bg))',
+				'xp-desktop-accent': 'hsl(var(--xp-desktop-accent))',
+				'xp-window': 'hsl(var(--xp-window-bg))',
+				'xp-window-border': 'hsl(var(--xp-window-border))',
+				'xp-window-title': 'hsl(var(--xp-window-title-bg))',
+				'xp-window-title-fg': 'hsl(var(--xp-window-title-fg))',
+				'xp-button': 'hsl(var(--xp-button-bg))',
+				'xp-button-border': 'hsl(var(--xp-button-border))',
+				'xp-button-hover': 'hsl(var(--xp-button-hover))',
+				'xp-button-active': 'hsl(var(--xp-button-active))',
+				'xp-text': 'hsl(var(--xp-text))',
+				'xp-text-light': 'hsl(var(--xp-text-light))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
