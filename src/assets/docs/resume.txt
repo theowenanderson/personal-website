@@ -1,0 +1,36 @@
+
+1
+Owen Anderson
+owentheanderson@gmail.com • owenanderson.dev • Tampa, FL
+Experience
+J.P. Morgan Chase & Co. — Software Engineer II
+Tampa, FL • Jan 2024 – Present
+● Led cloud migration of 8 Oracle production databases to the internal cloud, enabling an
+average of 12.8M daily SWIFT transactions totaling $25 trillion
+● Built an internal full-stack chat application using Python, React, OpenAI GPT-4, Pandas,
+and cx_Oracle for natural language SQL query generation and execution
+● Fine-tuned an OpenAI LLM to transform SWIFT message testing data in accordance
+with annual standards, reducing manual transformation time.
+● Developed Java Spring Boot application to archive data into Amazon S3 Glacier,
+optimizing long-term storage and compliance.
+J.P. Morgan Chase & Co. — Software Engineer I
+Tampa, FL • Jul 2021 – Jan 2024
+● Rebased 100+ managed file transfer services to new data centers, ensuring continuity
+of scheduled reporting and audit processes for clients
+● Created Java service to extract structured data from SWIFT XML messages via
+webMethods Integration Server.
+● Built regression testing suite using JUnit, Cucumber, and Jenkins
+Paraspeech – ML Speech Therapy Mobile App (Capstone Project)
+Orlando, FL • Jan 2021 - May 2021
+● Built a mobile speech therapy app using React Native, Firebase, and TensorFlow to
+analyze and assist speech patterns.
+● Designed responsive UI with end-to-end testing via Jest and Expo.
+● Integrated voice recording, playback, and Firebase connectivity for real-time feedback.
+Education
+University of Central Florida
+B.S. in Computer Science • Orlando, FL • May 2021
+Certifications and Skills
+Certifications: AWS Cloud Practitioner
+Languages & Tools: Languages & Tools: Python, Java, SQL, React, JavaScript, Spring Boot, Git,
+Jenkins, CI/CD, AWS S3, TensorFlow, Pandas, Hugging Face (familiar), JUnit, Cucumber, Docker
+(familiar)
